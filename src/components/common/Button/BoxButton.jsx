@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import common from '../../../styles/common';
 
-export default function BoxButton({ content, width, color }) {
+export default function BoxButton({ content, width, color, modalHandler }) {
   const buttonClick = () => {
-    console.log('버튼 클릭됨');
+    console.log('BoxButtonClick');
+    modalHandler();
   };
   return (
     <BoxButtonStyled width={width} color={color} onClick={() => buttonClick()}>
