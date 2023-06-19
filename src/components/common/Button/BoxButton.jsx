@@ -2,8 +2,11 @@ import styled from 'styled-components';
 import common from '../../../styles/common';
 
 export default function BoxButton({ content, width, color }) {
+  const buttonClick = () => {
+    console.log('버튼 클릭됨');
+  };
   return (
-    <BoxButtonStyled width={width} color={color}>
+    <BoxButtonStyled width={width} color={color} onClick={() => buttonClick()}>
       {content}
     </BoxButtonStyled>
   );
@@ -17,4 +20,5 @@ const BoxButtonStyled = styled.button`
   border-radius: 4px;
   background-color: ${(props) => props.color || common.color.gray};
   color: ${common.color.black};
+  cursor: pointer;
 `;
