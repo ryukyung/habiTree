@@ -17,12 +17,12 @@ export default function TextButton({ content, color, isSvg }) {
 }
 
 const TextButtonStyled = styled.button`
+  background-color: inherit;
   font-family: ${common.fontFamily.defaultFont};
   font-size: 24px;
   border: none;
   cursor: pointer;
   color: ${(props) => props.color || common.color.gray};
-
   .svg {
     display: ${(props) => (props.isSvg ? 'inline-block' : 'none')};
   }
