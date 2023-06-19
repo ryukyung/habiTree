@@ -32,6 +32,7 @@ const IconButtonStyled = styled.div`
   }
   .prev {
     color: ${common.color.white};
+    margin-top: -5px;
   }
   .next {
     color: ${common.color.gray};
