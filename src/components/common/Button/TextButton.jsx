@@ -4,12 +4,13 @@ import common from '../../../styles/common';
 import Notion from '../../../assets/svg/notion.svg';
 import Prev from '../../../assets/svg/arrow-left.svg';
 
-export default function TextButton({ content, color, isSvg }) {
+export default function TextButton({ content, color, isSvg, modalHandler }) {
   const buttonClick = () => {
-    console.log('버튼 클릭됨');
+    console.log('TextButtonClick');
+    modalHandler();
   };
   return (
-    <TextButtonStyled color={color} isSvg={isSvg} onClick={() => buttonClick()}>
+    <TextButtonStyled color={color} isSvg={isSvg} onClick={buttonClick}>
       {isSvg && <ReactSVG src={Notion} className="svg" />}
       {content}
     </TextButtonStyled>
