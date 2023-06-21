@@ -7,7 +7,7 @@ export default function BoxButton({ content, width, color, modalHandler }) {
     modalHandler();
   };
   return (
-    <BoxButtonStyled width={width} color={color} onClick={() => buttonClick()}>
+    <BoxButtonStyled width={width} color={color} onClick={buttonClick}>
       {content}
     </BoxButtonStyled>
   );
