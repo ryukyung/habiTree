@@ -1,7 +1,7 @@
 import { ReactSVG } from 'react-svg';
 import styled, { css } from 'styled-components';
-import common from '../../styles/common';
-import BoxButton from '../common/Button/BoxButton';
+import common from '../../../styles/common';
+import BoxButton from '../Button/BoxButton';
 import noSave from '../../assets/svg/no-save.svg';
 import SelectDate from './SelectDate';
 

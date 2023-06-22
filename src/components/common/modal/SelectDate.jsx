@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import common from '../../styles/common';
+import common from '../../../styles/common';
 
 export default function SelectDate({ placeholder }) {
   return (
