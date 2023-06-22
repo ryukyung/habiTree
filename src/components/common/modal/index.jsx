@@ -1,4 +1,5 @@
 import { ReactSVG } from 'react-svg';
+import { useState } from 'react';
 import styled, { css } from 'styled-components';
 import common from '../../../styles/common';
 import BoxButton from '../Button/BoxButton';
@@ -39,17 +40,59 @@ const DeleteModal = (handleClose, handleClick) => {
 };
 
 const CreateModal = (handleClose, handleClick) => {
-  const titleLength = 10;
+  const [title, setTitle] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const maxLength = 20;
+  const titleLength = title.length;
+
+  const handleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleStartDateChange = (event) => {
+    setStartDate(event.target.value);
+  };
+
+  const handleEndDateChange = (event) => {
+    setEndDate(event.target.value);
+  };
+
+  const isEndDateValid =
+    startDate !== '' && endDate !== '' && endDate >= startDate;
+  const handleButtonClick = () => {
+    if (isEndDateValid) {
+      handleClick();
+    } else {
+      alert('종료 날짜는 시작 날짜보다 커야합니다.');
+    }
+  };
   return (
     <CreateModalStyled onClick={(e) => e.stopPropagation()}>
       <TitleStyled>
-        <input type="text" placeholder="제목" />
-        <span>{titleLength}/20</span>
+        <input
+          type="text"
+          placeholder="제목"
+          maxLength={maxLength}
+          value={title}
+          onChange={handleChange}
+        />
+        <span>
+          {titleLength}/{maxLength}
+        </span>
       </TitleStyled>
       <SelectDateStyled>
-        <SelectDate placeholder={'시작 날짜'} />
+        <SelectDate
+          placeholder={'시작 날짜'}
+          value={startDate}
+          onChange={handleStartDateChange}
+        />
         ~
-        <SelectDate placeholder={'종료 날짜'} />
+        <SelectDate
+          placeholder={'종료 날짜'}
+          value={endDate}
+          onChange={handleEndDateChange}
+        />
       </SelectDateStyled>
       <ButtonStyled>
         <BoxButton
@@ -61,7 +104,8 @@ const CreateModal = (handleClose, handleClick) => {
           content={'등록하기'}
           width={'175px'}
           color={common.color.gray}
-          modalHandler={handleClick}
+          modalHandler={handleButtonClick}
+          disabled={!isEndDateValid}
         />
       </ButtonStyled>
     </CreateModalStyled>
