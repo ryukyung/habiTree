@@ -9,11 +9,14 @@ export default function IconButton({ isPrev }) {
   const id = 123;
   const prevPage = () => {
     console.log('이전 페이지로 감');
+    handleBack();
   };
   const nextPage = () => {
     console.log('다음 페이지로 감');
   };
-
+  const handleBack = () => {
+    window.history.back();
+  };
   return (
     <IconButtonStyled>
       {isPrev === true ? (
