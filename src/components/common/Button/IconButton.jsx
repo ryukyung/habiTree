@@ -1,22 +1,27 @@
 import styled from 'styled-components';
 import { ReactSVG } from 'react-svg';
+import { Link } from 'react-router-dom';
 import common from '../../../styles/common';
 import Prev from '../../../assets/svg/arrow-left.svg';
 import Next from '../../../assets/svg/arrow-right.svg';
 
 export default function IconButton({ isPrev }) {
+  const id = 123;
   const prevPage = () => {
     console.log('이전 페이지로 감');
   };
   const nextPage = () => {
     console.log('다음 페이지로 감');
   };
+
   return (
     <IconButtonStyled>
       {isPrev === true ? (
         <ReactSVG src={Prev} className="prev" onClick={() => prevPage()} />
       ) : (
-        <ReactSVG src={Next} className="next" onClick={() => nextPage()} />
+        <Link to={`/habit/${id}`} className="link">
+          <ReactSVG src={Next} className="next" onClick={() => nextPage()} />
+        </Link>
       )}
     </IconButtonStyled>
   );
