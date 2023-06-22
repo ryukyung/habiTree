@@ -19,8 +19,8 @@ export default function TextButton({ content, color, isSvg, modalHandler }) {
 
 const TextButtonStyled = styled.button`
   background-color: inherit;
-  font-family: ${common.fontFamily.defaultFont};
-  font-size: 24px;
+  font-family: ${(props) => (props.isSvg ? '' : common.fontFamily.defaultFont)};
+  font-size: ${(props) => (props.isSvg ? '16px' : '24px')};
   border: none;
   cursor: pointer;
   color: ${(props) => props.color || common.color.gray};
