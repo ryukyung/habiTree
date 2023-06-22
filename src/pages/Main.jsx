@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import common from '../styles/common';
 import TextButton from '../components/common/Button/TextButton';
@@ -10,9 +11,11 @@ export default function Main() {
     <Wrapper>
       <span>habiTree</span>
       <img src="/src/assets/png/tree4.png" />
-      <button className="button" onClick={clickHandler}>
-        바로가기
-      </button>
+      <Link to="/habit" className="link">
+        <button className="button" onClick={clickHandler}>
+          바로가기
+        </button>
+      </Link>
       <a href="https://ryukyung.notion.site/habiTree-2787e95952f644c99759a742c1dc8b46?pvs=4">
         <TextButton content={' habiTree'} isSvg={true} />
       </a>
@@ -36,6 +39,9 @@ const Wrapper = styled.div`
   img {
     width: 300px;
     height: 300px;
+  }
+  .link {
+    text-decoration: none;
   }
   .button {
     all: unset;
