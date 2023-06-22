@@ -34,7 +34,7 @@ export default function HabitList() {
         endDate={'2023.06.30'}
       />
       <TextButton
-        content={'+ 습관 추가하기 habiTree'}
+        content={'+ 습관 추가하기'}
         modalHandler={() => setCreateModalIsOpen(true)}
       />
       {createModalIsOpen && (
