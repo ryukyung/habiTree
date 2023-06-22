@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import common from '../../styles/common';
-
+import common from '../styles/common';
 export default function Stamp({ date, isSuccess }) {
   return (
     <StampCover>
