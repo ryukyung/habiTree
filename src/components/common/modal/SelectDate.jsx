@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import common from '../../../styles/common';
+import { useState } from 'react';
 
 export default function SelectDate({ placeholder }) {
+  const [value, setValue] = useState('');
+
   return (
     <SelectDateCover>
       <input
